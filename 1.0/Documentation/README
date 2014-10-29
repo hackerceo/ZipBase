@@ -1,0 +1,24 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	ZipBase v1 [2009-2014]
+	By Nick Benik
+	http://research.hackerceo.org/ZipBase
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ZipBase was concived and created by Nick Benik of Harvard Medical School for the storage and management of big data sets (100's of millions of documents, several TBs of uncompressed data, 100's of GB of compressed data).
+
+The primary purpose of ZipBase is to be a lightweight compressed document store with fast access to individual records.  Another driving requirement of ZipBase was to allow a large number of dataset documents to be easily movable between different computing locations.
+
+Version 1 of ZipBase was hacked together and upgraded sporadically over the last few years based upon project needs.  Version 2 will be rewritten from scratch based upon 1] lessons learned (data requirements, corruption, recoverability), and 2] actually take the time to implement the subsystem in an elegant OOP manner.
+
+
+Command Syntax:
+
+            $ZDB = new ZipDatabase($datafile, $indexfile, "READWRITE|READONLY [COMPRESS:scheme] [INDEX:REBUILD]");
+            $ZDB->RecordSaveNew($key, $data [, $mode]);
+            $ZDB->RecordSave($key, $data [, $mode]);
+            $ZDB->RecordRead($key);
+            $ZDB->RecordDelete($key);
+            $ZDB->AdminCompact();
+            $ZDB->AdminRebuildIndex($indexfile="");
+            $ZDB->ListKeys();
+            $ZDB->MergeDB($datafile);
